@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#F28C0D">
+  <title>Xpress Solar — Product Info</title>
+  <meta name="description" content="Verified product information from Xpress Solar Lagos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main id="app">
+    <!-- Loading state shown initially -->
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading product info...</p>
+    </div>
+  </main>
+
+  <!-- Modals (hidden by default) -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="paymentModal">
+    <div class="modal-header">
+      <h3>Pay by Bank Transfer</h3>
+      <button class="icon-btn" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-hint">Make a transfer to the account below. Show your transfer receipt to a staff member to collect your product.</p>
+
+      <div class="account-card">
+        <div class="account-row">
+          <span class="account-label">BANK</span>
+          <span class="account-value">GTBank</span>
+        </div>
+        <div class="account-row">
+          <span class="account-label">ACCOUNT NAME</span>
+          <span class="account-value">Xpress Solar Ltd.</span>
+        </div>
+        <div class="account-row account-number-row">
+          <span class="account-label">ACCOUNT NUMBER</span>
+          <div class="account-number">
+            <span id="accountNumber">0123456789</span>
+            <button class="copy-btn" onclick="copyAccount()">Copy</button>
+          </div>
+        </div>
+        <div class="account-row amount-row">
+          <span class="account-label">AMOUNT TO TRANSFER</span>
+          <span class="account-value amount" id="transferAmount">—</span>
+        </div>
+      </div>
+
+      <div class="modal-note">
+        <span class="note-icon">💡</span>
+        <p>Use your <strong>phone number</strong> as the payment narration so we can match your payment.</p>
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" id="whatsappReceiptBtn" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 Send Receipt via WhatsApp</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast for feedback -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
