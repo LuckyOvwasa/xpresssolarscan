@@ -36,9 +36,9 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-function copyAccount() {
+function copyAccount(e) {
   const accountNumber = SHOP.accountNumber;
-  const btn = event.target;
+  const btn = e.target;
   navigator.clipboard.writeText(accountNumber).then(() => {
     btn.textContent = 'Copied ✓';
     btn.classList.add('copied');
@@ -284,9 +284,7 @@ function renderProduct(p) {
         <button class="btn btn-primary btn-block" onclick="openPaymentModal()">
           🏦 Pay by Bank Transfer
         </button>
-        <a href="https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in the ${p.name} (${p.sku})`)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-block">
-          💬 Ask a Question on WhatsApp
-        </a>
+
       </div>
 
       <!-- Help card -->
